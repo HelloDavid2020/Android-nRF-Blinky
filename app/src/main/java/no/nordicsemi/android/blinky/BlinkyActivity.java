@@ -25,6 +25,7 @@ package no.nordicsemi.android.blinky;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -49,6 +50,8 @@ public class BlinkyActivity extends AppCompatActivity {
 
 	@BindView(R.id.led_switch) SwitchMaterial led;
 	@BindView(R.id.button_state) TextView buttonState;
+	@BindView(R.id.btn_lock) Button buttonLock;
+	@BindView(R.id.btn_unlock) Button buttonUnlock;
 
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
@@ -77,6 +80,20 @@ public class BlinkyActivity extends AppCompatActivity {
 		final TextView connectionState = findViewById(R.id.connection_state);
 		final View content = findViewById(R.id.device_container);
 		final View notSupported = findViewById(R.id.not_supported);
+
+		buttonLock.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				viewModel.setLedState(false);
+			}
+		});
+
+		buttonUnlock.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				viewModel.setLedState(true);
+			}
+		});
 
 		led.setOnCheckedChangeListener((buttonView, isChecked) -> viewModel.setLedState(isChecked));
 		viewModel.getConnectionState().observe(this, state -> {

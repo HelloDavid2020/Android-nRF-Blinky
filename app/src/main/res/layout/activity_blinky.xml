@@ -106,7 +106,7 @@
 						app:layout_constraintEnd_toEndOf="parent" />
 
 					<Button
-						android:id="@+id/button3"
+						android:id="@+id/btn_unlock"
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
 						android:layout_marginStart="84dp"
@@ -117,7 +117,7 @@
 						app:layout_constraintTop_toTopOf="parent" />
 
 					<Button
-						android:id="@+id/button4"
+						android:id="@+id/btn_lock"
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
 						android:layout_marginTop="140dp"
