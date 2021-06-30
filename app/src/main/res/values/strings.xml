@@ -65,4 +65,11 @@
 
 	<string name="state_connecting">Connecting…</string>
 	<string name="state_initializing">Initializing…</string>
+
+	<string name="button_unlock">UNLOCK</string>
+	<string name="button_lock">LOCK</string>
+
+
+
+
 </resources>
