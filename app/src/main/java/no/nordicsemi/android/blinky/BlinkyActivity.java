@@ -49,7 +49,6 @@ public class BlinkyActivity extends AppCompatActivity {
 	private BlinkyViewModel viewModel;
 
 	@BindView(R.id.led_switch) SwitchMaterial led;
-	@BindView(R.id.button_state) TextView buttonState;
 	@BindView(R.id.btn_lock) Button buttonLock;
 	@BindView(R.id.btn_unlock) Button buttonUnlock;
 
@@ -129,9 +128,7 @@ public class BlinkyActivity extends AppCompatActivity {
 			ledState.setText(isOn ? R.string.turn_on : R.string.turn_off);
 			led.setChecked(isOn);
 		});
-		viewModel.getButtonState().observe(this,
-				pressed -> buttonState.setText(pressed ?
-						R.string.button_pressed : R.string.button_released));
+
 	}
 
 	@OnClick(R.id.action_clear_cache)
@@ -143,7 +140,6 @@ public class BlinkyActivity extends AppCompatActivity {
 		led.setEnabled(connected);
 		if (!connected) {
 			led.setChecked(false);
-			buttonState.setText(R.string.button_unknown);
 		}
 	}
 }
